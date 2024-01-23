@@ -37,9 +37,7 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     @Override
-    public Point2d translate(Double[] translateVector) {
-        return null;
-    }
+    public Point2d translate(Double[] translateVector) { return null;}
 
     /** TODO
      * Translate the point by the given 2D Point

@@ -23,12 +23,19 @@ public final class PointOperator {
      * @param rotationMatrix Matrix by which to rotate
      */
     public static void rotate(Double[] vector, Double[][] rotationMatrix) {
-        for(int i = 0; i < vector.length; i++){
-            double sum = 0;
-            for(int j = 0; j < vector.length; j++) {
-                sum += vector[i] * rotationMatrix[i][j];
-            }
+        Double[] tempVector = new Double[vector.length];
 
+        for (int i = 0; i < vector.length; i++) {
+            double sum = 0.0;
+            for (int j = 0; j < rotationMatrix[i].length; j++) {
+                sum += vector[j] * rotationMatrix[i][j];
+            }
+            tempVector[i] = sum;
+        }
+
+        // Copie les résultats calculés dans le vecteur d'origine
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] = tempVector[i];
         }
     }
 
@@ -50,7 +57,7 @@ public final class PointOperator {
      */
     public static void multiply(Double[] vector, Double multiplier) {
         for(int i = 0; i < vector.length; i++){
-            vector[i] /= multiplier;
+            vector[i] *= multiplier;
         }
     }
 
