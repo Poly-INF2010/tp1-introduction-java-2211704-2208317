@@ -17,8 +17,7 @@ public final class LetterFactory {
     final static Double horizontal = 90 * Math.PI / 180;
     final static Double adjustUpE = 4.0;
     final static Double adjustDownE = 5.0;
-
-
+    final static Double bHeight = halfMaxHeight / 2;
 
 
     /**
@@ -56,11 +55,11 @@ public final class LetterFactory {
     public static BaseShape create_B() {
         BaseShape letterB = new BaseShape();
 
-        Ellipse upCircle = new Ellipse(CirclemaxWidth,CirclemaxWidth);
-        Ellipse downCircle = new Ellipse(CirclemaxWidth,CirclemaxWidth);
+        Ellipse upCircle = new Ellipse(CirclemaxWidth, CirclemaxWidth);
+        Ellipse downCircle = new Ellipse(CirclemaxWidth, CirclemaxWidth);
 
-        upCircle.translate(upCircle.getCoords(), new Point2d(halfMaxWidth, halfMaxHeight / 2));
-        downCircle.translate(downCircle.getCoords(), new Point2d(halfMaxWidth, -halfMaxHeight / 2));
+        upCircle.translate(upCircle.getCoords(), new Point2d(halfMaxWidth, bHeight));
+        downCircle.translate(downCircle.getCoords(), new Point2d(halfMaxWidth, -bHeight));
 
         letterB.add(new Rectangle(stripeThickness, maxHeight));
         letterB.add(upCircle);
@@ -79,7 +78,7 @@ public final class LetterFactory {
         BaseShape letterC = new Ellipse(maxWidth, maxHeight);
 
         Rectangle gap = new Rectangle(stripeThickness, halfMaxHeight);
-        gap.translate(gap.getCoords(),new Point2d(halfMaxWidth, zero));
+        gap.translate(gap.getCoords(), new Point2d(halfMaxWidth, zero));
         letterC.remove(gap);
 
         return letterC;

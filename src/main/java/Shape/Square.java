@@ -11,11 +11,10 @@ public class Square extends Rectangle {
      */
     public Square(Double size) {
         super(0.0, 0.0);
-        
-        double halfWidth = size / 2.0;
-        double halfHeight = size / 2.0;
-        for (double y = -halfHeight; y < halfHeight; y += increment) {
-            for (double x = -halfWidth; x <= halfWidth; x += increment) {
+        double halfSize = size / 2.0;
+
+        for (double y = -halfSize; y < halfSize; y += increment) {
+            for (double x = -halfSize; x <= halfSize; x += increment) {
                 add(new Point2d(x, -y));
             }
         }

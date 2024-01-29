@@ -16,9 +16,9 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Double width, Double height) {
         super();
-
         double halfWidth = width / 2.0;
         double halfHeight = height / 2.0;
+
         for (double y = -halfHeight; y < halfHeight; y += increment) {
             for (double x = -halfWidth; x <= halfWidth; x += increment) {
                 add(new Point2d(x, -y));
